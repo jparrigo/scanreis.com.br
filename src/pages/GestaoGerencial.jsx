@@ -21,9 +21,18 @@ const categories = [
     iconBg: "bg-orange-50 border-orange-100",
     accent: "border-l-[#FFC124]",
     items: [
-      { label: "DRE 2023", href: "#" },
-      { label: "DRE 2024", href: "#" },
-      { label: "DRE 2025", href: "#" },
+      {
+        label: "DRE 2023",
+        href: "http://scanreis2.hospedagemdesites.ws/contr_int/drescanreis2023.pdf",
+      },
+      {
+        label: "DRE 2024",
+        href: "http://scanreis2.hospedagemdesites.ws/contr_int/drescanreis2024.pdf",
+      },
+      {
+        label: "DRE 2025",
+        href: "http://scanreis2.hospedagemdesites.ws/contr_int/drescanreis2025.pdf",
+      },
     ],
   },
   {
@@ -33,9 +42,18 @@ const categories = [
     iconBg: "bg-emerald-50 border-emerald-100",
     accent: "border-l-emerald-400",
     items: [
-      { label: "Finanças 2023", href: "#" },
-      { label: "Finanças 2024", href: "#" },
-      { label: "Finanças 2025", href: "#" },
+      {
+        label: "Finanças 2023",
+        href: "http://scanreis2.hospedagemdesites.ws/contr_int/saldo2023.pdf",
+      },
+      {
+        label: "Finanças 2024",
+        href: "http://scanreis2.hospedagemdesites.ws/contr_int/saldo2024.pdf",
+      },
+      {
+        label: "Finanças 2025",
+        href: "http://scanreis2.hospedagemdesites.ws/contr_int/saldo2025.pdf",
+      },
     ],
   },
   {
@@ -45,9 +63,18 @@ const categories = [
     iconBg: "bg-blue-50 border-blue-100",
     accent: "border-l-blue-400",
     items: [
-      { label: "Vendas 2023", href: "#" },
-      { label: "Vendas 2024", href: "#" },
-      { label: "Vendas 2025", href: "#" },
+      {
+        label: "Vendas 2023",
+        href: "http://scanreis2.hospedagemdesites.ws/contr_int/vendas2023.pdf",
+      },
+      {
+        label: "Vendas 2024",
+        href: "http://scanreis2.hospedagemdesites.ws/contr_int/vendas2024.pdf",
+      },
+      {
+        label: "Vendas 2025",
+        href: "http://scanreis2.hospedagemdesites.ws/contr_int/vendas2025.pdf",
+      },
     ],
   },
   {
@@ -57,9 +84,18 @@ const categories = [
     iconBg: "bg-violet-50 border-violet-100",
     accent: "border-l-violet-400",
     items: [
-      { label: "Agente 2023", href: "#" },
-      { label: "Agente 2024", href: "#" },
-      { label: "Agente 2025", href: "#" },
+      {
+        label: "Agente 2023",
+        href: "http://scanreis2.hospedagemdesites.ws/contr_int/agente2023.pdf",
+      },
+      {
+        label: "Agente 2024",
+        href: "http://scanreis2.hospedagemdesites.ws/contr_int/agente2024.pdf",
+      },
+      {
+        label: "Agente 2025",
+        href: "http://scanreis2.hospedagemdesites.ws/contr_int/agente2025.pdf",
+      },
     ],
   },
   {
@@ -69,14 +105,24 @@ const categories = [
     iconBg: "bg-amber-50 border-amber-100",
     accent: "border-l-amber-400",
     items: [
-      { label: "Ranking 2023", href: "#" },
-      { label: "Ranking 2024", href: "#" },
-      { label: "Ranking 2025", href: "#" },
+      {
+        label: "Ranking 2023",
+        href: "http://scanreis2.hospedagemdesites.ws/contr_int/ranking2023.pdf",
+      },
+      {
+        label: "Ranking 2024",
+        href: "http://scanreis2.hospedagemdesites.ws/contr_int/ranking2024.pdf",
+      },
+      {
+        label: "Ranking 2025",
+        href: "http://scanreis2.hospedagemdesites.ws/contr_int/ranking2025.pdf",
+      },
     ],
   },
 ];
 
-const EXTRATO_URL = "#"; // Substituir pela URL real
+const EXTRATO_URL =
+  "http://scanreis2.hospedagemdesites.ws/contr_int/extratob.pdf"; // Substituir pela URL real
 
 export default function GestaoGerencial() {
   const navigate = useNavigate();
@@ -128,8 +174,13 @@ export default function GestaoGerencial() {
             return (
               <section key={cat.label}>
                 <div className="flex items-center gap-3 mb-4">
-                  <div className={`w-9 h-9 rounded-xl border flex items-center justify-center flex-shrink-0 ${cat.iconBg}`}>
-                    <CatIcon className={`w-4 h-4 ${cat.color}`} strokeWidth={2} />
+                  <div
+                    className={`w-9 h-9 rounded-xl border flex items-center justify-center flex-shrink-0 ${cat.iconBg}`}
+                  >
+                    <CatIcon
+                      className={`w-4 h-4 ${cat.color}`}
+                      strokeWidth={2}
+                    />
                   </div>
                   <h2 className="font-headline font-black text-gray-800 text-base uppercase tracking-widest">
                     {cat.label}
@@ -148,8 +199,13 @@ export default function GestaoGerencial() {
                         rel={isExternal ? "noopener noreferrer" : undefined}
                         className={`card-lift group flex items-center gap-3 bg-white border-l-4 ${cat.accent} border border-gray-200 rounded-xl px-4 py-3.5 transition-all duration-200`}
                       >
-                        <div className={`w-8 h-8 rounded-lg border flex items-center justify-center flex-shrink-0 ${cat.iconBg}`}>
-                          <CatIcon className={`w-4 h-4 ${cat.color}`} strokeWidth={2} />
+                        <div
+                          className={`w-8 h-8 rounded-lg border flex items-center justify-center flex-shrink-0 ${cat.iconBg}`}
+                        >
+                          <CatIcon
+                            className={`w-4 h-4 ${cat.color}`}
+                            strokeWidth={2}
+                          />
                         </div>
                         <span className="font-body text-sm font-medium text-gray-700 group-hover:text-gray-900 flex-1 transition-colors">
                           {item.label}

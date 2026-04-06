@@ -25,12 +25,36 @@ const categories = [
     iconBg: "bg-orange-50 border-orange-100",
     accent: "border-l-[#FFC124]",
     items: [
-      { label: "Estoque Coletores", icon: Smartphone, href: "#" },
-      { label: "Estoque Leitores", icon: ScanLine, href: "#" },
-      { label: "Estoque Acessórios", icon: Wrench, href: "#" },
-      { label: "Estoque Access Point", icon: Wifi, href: "#" },
-      { label: "Estoque Impressoras", icon: Printer, href: "#" },
-      { label: "Estoque Terceiros", icon: Package, href: "#" },
+      {
+        label: "Estoque Coletores",
+        icon: Smartphone,
+        href: "http://scanreis2.hospedagemdesites.ws/contr_int/coletores.pdf",
+      },
+      {
+        label: "Estoque Leitores",
+        icon: ScanLine,
+        href: "http://scanreis2.hospedagemdesites.ws/contr_int/leitores.pdf",
+      },
+      {
+        label: "Estoque Acessórios",
+        icon: Wrench,
+        href: "http://scanreis2.hospedagemdesites.ws/contr_int/acessorios.pdf",
+      },
+      {
+        label: "Estoque Access Point",
+        icon: Wifi,
+        href: "http://scanreis2.hospedagemdesites.ws/contr_int/accesspoint.pdf",
+      },
+      {
+        label: "Estoque Impressoras",
+        icon: Printer,
+        href: "http://scanreis2.hospedagemdesites.ws/contr_int/impressoras.pdf",
+      },
+      {
+        label: "Estoque Terceiros",
+        icon: Package,
+        href: "http://scanreis2.hospedagemdesites.ws/contr_int/terceiros.pdf",
+      },
     ],
   },
   {
@@ -40,9 +64,21 @@ const categories = [
     iconBg: "bg-violet-50 border-violet-100",
     accent: "border-l-violet-400",
     items: [
-      { label: "Funil de Vendas", icon: TrendingUp, href: "#" },
-      { label: "Tabela Scanreis", icon: Table2, href: "#" },
-      { label: "Clientes", icon: Users, href: "#" },
+      {
+        label: "Funil de Vendas",
+        icon: TrendingUp,
+        href: "http://scanreis2.hospedagemdesites.ws/contr_int/funilvda.pdf",
+      },
+      {
+        label: "Tabela Scanreis",
+        icon: Table2,
+        href: "http://scanreis2.hospedagemdesites.ws/contr_int/tab_preco_scanreis.pdf",
+      },
+      {
+        label: "Clientes",
+        icon: Users,
+        href: "http://scanreis2.hospedagemdesites.ws/contr_int/clientes.pdf",
+      },
     ],
   },
   {
@@ -52,11 +88,31 @@ const categories = [
     iconBg: "bg-blue-50 border-blue-100",
     accent: "border-l-blue-400",
     items: [
-      { label: "Tabela ATSI Allied", icon: FileText, href: "#" },
-      { label: "Tabela Honeywell / Intermec", icon: FileText, href: "#" },
-      { label: "Tabela KNC", icon: FileText, href: "#" },
-      { label: "Tabela Unitech", icon: FileText, href: "#" },
-      { label: "Tabela Zebra / Motorola", icon: FileText, href: "#" },
+      {
+        label: "Tabela ATSI Allied",
+        icon: FileText,
+        href: "https://drive.google.com/file/d/1ScPq5Iwrdb7lk4TSkTFkhtskj-W3qw2G/view?usp=drive_link&export=download",
+      },
+      {
+        label: "Tabela Honeywell / Intermec",
+        icon: FileText,
+        href: "https://docs.google.com/spreadsheets/d/1L30efoq1fVC3Ci7pOTd0ef8VAsZgcDlu/edit?usp=drive_link&ouid=101487253340101774377&rtpof=true&sd=true&export=download",
+      },
+      {
+        label: "Tabela KNC",
+        icon: FileText,
+        href: "https://drive.google.com/file/d/1V615JQwG2oXGvsyoy2TKkiSlsFOFfvIr/view?usp=drive_link&export=download",
+      },
+      {
+        label: "Tabela Unitech",
+        icon: FileText,
+        href: "https://docs.google.com/spreadsheets/d/1FnZeR7RDd8AF6mD-2wTv6fxswou4mBfi/edit?usp=drive_link&ouid=101487253340101774377&rtpof=true&sd=true&export=download",
+      },
+      {
+        label: "Tabela Zebra / Motorola",
+        icon: FileText,
+        href: "https://docs.google.com/spreadsheets/d/1Uds42q8alTzs2Da3VUPCiroipGwZ5BRL/edit?usp=drive_link&ouid=101487253340101774377&rtpof=true&sd=true&export=download",
+      },
     ],
   },
 ];
@@ -112,8 +168,13 @@ export default function GestaoOperacional() {
               <section key={cat.label}>
                 {/* Category header */}
                 <div className="flex items-center gap-3 mb-4">
-                  <div className={`w-9 h-9 rounded-xl border flex items-center justify-center flex-shrink-0 ${cat.iconBg}`}>
-                    <CatIcon className={`w-4 h-4 ${cat.color}`} strokeWidth={2} />
+                  <div
+                    className={`w-9 h-9 rounded-xl border flex items-center justify-center flex-shrink-0 ${cat.iconBg}`}
+                  >
+                    <CatIcon
+                      className={`w-4 h-4 ${cat.color}`}
+                      strokeWidth={2}
+                    />
                   </div>
                   <h2 className="font-headline font-black text-gray-800 text-base uppercase tracking-widest">
                     {cat.label}
@@ -134,8 +195,13 @@ export default function GestaoOperacional() {
                         rel={isExternal ? "noopener noreferrer" : undefined}
                         className={`card-lift group flex items-center gap-3 bg-white border-l-4 ${cat.accent} border border-gray-200 rounded-xl px-4 py-3.5 hover:border-l-4 transition-all duration-200`}
                       >
-                        <div className={`w-8 h-8 rounded-lg border flex items-center justify-center flex-shrink-0 ${cat.iconBg}`}>
-                          <ItemIcon className={`w-4 h-4 ${cat.color}`} strokeWidth={2} />
+                        <div
+                          className={`w-8 h-8 rounded-lg border flex items-center justify-center flex-shrink-0 ${cat.iconBg}`}
+                        >
+                          <ItemIcon
+                            className={`w-4 h-4 ${cat.color}`}
+                            strokeWidth={2}
+                          />
                         </div>
                         <span className="font-body text-sm font-medium text-gray-700 group-hover:text-gray-900 flex-1 transition-colors">
                           {item.label}
