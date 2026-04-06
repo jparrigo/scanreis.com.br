@@ -1,128 +1,137 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect } from "react";
+import logoUrovo from "@/imgs/fornecedores/urovo-54.png";
+import logoZebra from "@/imgs/fornecedores/zebra-54.png";
+import logoDatalogic from "@/imgs/fornecedores/datalogic-54.png";
+import logoHoneywell from "@/imgs/fornecedores/honeywell-54.png";
+import logoUnitech from "@/imgs/fornecedores/unitech.webp";
+import logoCompex from "@/imgs/fornecedores/compex.png";
 
 const brands = [
-  { name: 'UROVO', tagline: 'Mobile Computing' },
-  { name: 'ZEBRA', tagline: 'Enterprise Technology' },
-  { name: 'DATALOGIC', tagline: 'Automatic Data Capture' },
-  { name: 'HONEYWELL', tagline: 'Sensing & Safety' },
-  { name: 'UNITECH', tagline: 'Industrial Mobility' },
-  { name: 'COMPEX', tagline: 'Wireless Networks' },
-]
+  { name: "Urovo", tagline: "Mobile Computing", logo: logoUrovo },
+  { name: "Zebra", tagline: "Enterprise Technology", logo: logoZebra },
+  { name: "Datalogic", tagline: "Automatic Data Capture", logo: logoDatalogic },
+  { name: "Honeywell", tagline: "Sensing & Safety", logo: logoHoneywell },
+  { name: "Unitech", tagline: "Industrial Mobility", logo: logoUnitech },
+  { name: "Compex", tagline: "Wireless Networks", logo: logoCompex },
+];
 
-// Duplicate for seamless loop
-const allBrands = [...brands, ...brands]
+// 4 cópias: a animação translada -50%, então a primeira metade deve cobrir
+// pelo menos a largura da viewport. Com ~190px por card × 24 itens ≈ 4560px → 50% ≈ 2280px.
+const allBrands = [...brands, ...brands, ...brands, ...brands];
 
 export default function Brands() {
-  const sectionRef = useRef(null)
+  const sectionRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible')
-            observer.unobserve(entry.target)
+      (entries) =>
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("visible");
+            observer.unobserve(e.target);
           }
-        })
-      },
-      { threshold: 0.1 }
-    )
-
+        }),
+      { threshold: 0.1 },
+    );
     if (sectionRef.current) {
-      const els = sectionRef.current.querySelectorAll('.reveal, .reveal-left')
-      els.forEach((el) => observer.observe(el))
+      sectionRef.current
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
     }
-
-    return () => observer.disconnect()
-  }, [])
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section id="marcas" ref={sectionRef} className="bg-[#0d0d0d] py-16 lg:py-20 relative overflow-hidden">
-      {/* Top / bottom dividers */}
-      <div className="section-divider mb-0" />
-
+    <section
+      id="marcas"
+      ref={sectionRef}
+      className="bg-orange-50 py-16 lg:py-20 overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
           <div>
-            <div className="reveal flex items-center gap-3 mb-3">
-              <span className="h-px w-10 bg-[#F97316]" />
-              <span className="text-[#F97316] text-xs font-body font-semibold uppercase tracking-widest">
-                Marcas Parceiras
-              </span>
+            <div className="reveal inline-flex items-center gap-2 bg-orange-100 border border-orange-200 text-[#E6A800] text-xs font-body font-semibold px-4 py-1.5 rounded-full uppercase tracking-widest mb-3">
+              Marcas Parceiras
             </div>
             <h2
-              className="reveal font-headline font-black text-[#FAFAFA] leading-tight delay-100"
-              style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)' }}
+              className="reveal font-headline font-black text-gray-900 leading-tight delay-100"
+              style={{ fontSize: "clamp(1.8rem, 4vw, 3rem)" }}
             >
-              TRABALHAMOS COM AS{' '}
+              TRABALHAMOS COM AS{" "}
               <span className="text-gradient">LÍDERES DO MERCADO</span>
             </h2>
           </div>
-          <p className="reveal font-body text-[#A3A3A3] text-sm max-w-xs delay-200">
-            Distribuidor autorizado e parceiro oficial das principais fabricantes globais de equipamentos de automação.
+          <p className="reveal font-body text-gray-500 text-sm max-w-xs delay-200">
+            Revenda autorizada das principais fabricantes globais de
+            equipamentos de automação.
           </p>
         </div>
       </div>
 
-      {/* Marquee container */}
-      <div className="relative overflow-hidden py-4">
-        {/* Left fade */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 z-10 pointer-events-none"
-             style={{ background: 'linear-gradient(90deg, #0d0d0d, transparent)' }} />
-        {/* Right fade */}
-        <div className="absolute right-0 top-0 bottom-0 w-20 z-10 pointer-events-none"
-             style={{ background: 'linear-gradient(-90deg, #0d0d0d, transparent)' }} />
+      {/* Marquee */}
+      <div className="relative overflow-hidden py-3">
+        <div
+          className="absolute left-0 top-0 bottom-0 w-20 z-10 pointer-events-none"
+          style={{ background: "linear-gradient(90deg, #fff7ed, transparent)" }}
+        />
+        <div
+          className="absolute right-0 top-0 bottom-0 w-20 z-10 pointer-events-none"
+          style={{
+            background: "linear-gradient(-90deg, #fff7ed, transparent)",
+          }}
+        />
 
         <div className="marquee-track">
           {allBrands.map((brand, i) => (
             <div
               key={i}
-              className="flex-shrink-0 mx-6 flex items-center gap-3 group cursor-default"
-              style={{ minWidth: '180px' }}
+              className="flex-shrink-0 mx-4 group cursor-default"
+              style={{ minWidth: "160px" }}
             >
-              {/* Brand badge */}
-              <div className="flex flex-col items-start bg-[#111111] border border-[#262626] group-hover:border-[#F97316]/40 px-5 py-3 rounded-sm transition-all duration-300 group-hover:bg-[#F97316]/5 min-w-[160px]">
-                <span className="font-headline font-black text-xl tracking-widest text-[#525252] group-hover:text-[#F97316] transition-colors duration-300">
-                  {brand.name}
-                </span>
-                <span className="font-body text-[9px] uppercase tracking-widest text-[#404040] group-hover:text-[#737373] transition-colors mt-0.5">
+              <div className="bg-white border border-orange-100 group-hover:border-[#FFC124] px-5 py-4 rounded-2xl shadow-sm transition-all duration-300 group-hover:shadow-md min-w-[150px] flex flex-col items-center gap-2">
+                {brand.logo ? (
+                  <img
+                    src={brand.logo}
+                    alt={brand.name}
+                    className="h-8 w-auto object-contain opacity-60 group-hover:opacity-100 transition-opacity duration-300"
+                  />
+                ) : (
+                  <span className="font-headline font-black text-lg tracking-widest text-gray-300 group-hover:text-[#FFC124] transition-colors duration-300 leading-none">
+                    {brand.name.toUpperCase()}
+                  </span>
+                )}
+                <span className="font-body text-[9px] uppercase tracking-widest text-gray-300 group-hover:text-gray-500 transition-colors text-center">
                   {brand.tagline}
                 </span>
               </div>
-
-              {/* Separator dot */}
-              <div className="w-1.5 h-1.5 rounded-full bg-[#262626] flex-shrink-0 ml-2" />
             </div>
           ))}
         </div>
       </div>
 
       {/* Stats strip */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
         <div className="reveal grid grid-cols-2 lg:grid-cols-4 gap-4">
           {[
-            { value: '6', label: 'Marcas parceiras' },
-            { value: '200+', label: 'Modelos em estoque' },
-            { value: 'Autorizados', label: 'Reparos certificados' },
-            { value: 'Nacional', label: 'Atendimento no Brasil' },
+            { value: "6", label: "Marcas parceiras" },
+            { value: "200+", label: "Modelos em estoque" },
+            { value: "Autorizados", label: "Reparos certificados" },
+            { value: "Nacional", label: "Atendimento no Brasil" },
           ].map((item, i) => (
             <div
               key={i}
-              className="bg-[#111111] border border-[#1a1a1a] rounded-sm px-5 py-4 text-center"
-              style={{ transitionDelay: `${i * 80}ms` }}
+              className="bg-white border border-orange-100 rounded-2xl px-5 py-4 text-center shadow-sm"
             >
-              <div className="font-headline font-black text-2xl text-[#F97316] leading-none">
+              <div className="font-headline font-black text-2xl text-[#FFC124] leading-none">
                 {item.value}
               </div>
-              <div className="font-body text-xs text-[#737373] uppercase tracking-wide mt-1">
+              <div className="font-body text-xs text-gray-400 uppercase tracking-wide mt-1">
                 {item.label}
               </div>
             </div>
           ))}
         </div>
       </div>
-
-      <div className="section-divider mt-12" />
     </section>
-  )
+  );
 }

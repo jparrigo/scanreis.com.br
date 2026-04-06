@@ -1,186 +1,213 @@
-import { useEffect, useRef } from 'react'
-import { Scan, Database, Printer, Wifi, ArrowRight } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { useEffect, useRef, useState } from "react";
+import { ArrowRight, MessageCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-const WA_LINK = 'https://wa.me/5511999999999?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento'
+// Leitores
+import leitor1 from "@/imgs/leitores/Gryphon4200Series.png";
+import leitor2 from "@/imgs/leitores/QS2200Series.png";
+import leitor3 from "@/imgs/leitores/Heron HD3430.png";
+import leitor4 from "@/imgs/leitores/RIDA.png";
+
+// Coletores
+import coletor1 from "@/imgs/coletores/mc22.jpg";
+import coletor2 from "@/imgs/coletores/ct48.jpg";
+import coletor3 from "@/imgs/coletores/dt50.png";
+import coletor4 from "@/imgs/coletores/rt40-hand.png";
+
+// Impressoras
+import imp1 from "@/imgs/impressoras/zd400-series-right-3x2-3600.jpg";
+import imp2 from "@/imgs/impressoras/zt510-front-left-3x2-3600.jpg";
+import imp3 from "@/imgs/impressoras/pd42.webp";
+import imp4 from "@/imgs/impressoras/tsc-ml.png";
+
+// Access Points
+import ap1 from "@/imgs/access-point/AP5010-1024x842.png";
+import ap2 from "@/imgs/access-point/U6+.png";
+import ap3 from "@/imgs/access-point/ap460c_wr_1.png";
+import ap4 from "@/imgs/access-point/ProApACGNInside.png";
+
+const WA_LINK =
+  "https://wa.me/551133793044?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento";
 
 const products = [
   {
-    icon: Scan,
-    title: 'Leitores de Código de Barras',
+    title: "Leitores de Código de Barras",
     description:
-      'Leitores 1D e 2D de alto desempenho para ambientes industriais e logísticos. Modelos fixos, portáteis, resistentes a poeira e impacto (IP65+).',
-    tags: ['1D / 2D', 'Industrial IP65', 'Sem fio', 'USB / Serial'],
-    brands: ['Zebra', 'Honeywell', 'Datalogic'],
-    applications: ['Almoxarifado', 'Linha de produção', 'Varejo'],
+      "Leitores 1D e 2D para ambientes industriais e logísticos. Modelos fixos, portáteis e resistentes (IP65+).",
+    tags: ["1D / 2D", "Industrial IP65", "USB / BT"],
+    brands: ["Zebra", "Honeywell", "Datalogic"],
+    images: [leitor1, leitor2, leitor3, leitor4],
+    waText:
+      "Olá%2C%20tenho%20interesse%20em%20Leitores%20de%20Código%20de%20Barras",
   },
   {
-    icon: Database,
-    title: 'Coletores de Dados',
+    title: "Coletores de Dados",
     description:
-      'Terminais móveis robustos com Android e Windows para coleta de dados em campo. Tela touchscreen, bateria de longa duração e scanner integrado.',
-    tags: ['Android / Windows', 'RFID Opcional', 'Bateria estendida', 'Wi-Fi / 4G'],
-    brands: ['Urovo', 'Unitech', 'Zebra', 'Honeywell'],
-    applications: ['Inventário', 'Expedição', 'Field Service'],
+      "Terminais móveis robustos com Android para coleta em campo. Scanner integrado e bateria de longa duração.",
+    tags: ["Android", "RFID Opcional", "Wi-Fi / 4G"],
+    brands: ["Urovo", "Unitech", "Zebra", "Honeywell", "Compex"],
+    images: [coletor1, coletor2, coletor3, coletor4],
+    waText: "Olá%2C%20tenho%20interesse%20em%20Coletores%20de%20Dados",
   },
   {
-    icon: Printer,
-    title: 'Impressoras de Etiquetas',
+    title: "Impressoras de Etiquetas",
     description:
-      'Impressoras térmicas diretas e transferência térmica para etiquetas de alta qualidade. Modelos desktop, industriais e portáteis.',
-    tags: ['Térmica direta', 'Transferência térmica', 'Desktop / Industrial', 'Portátil'],
-    brands: ['Zebra', 'Datalogic'],
-    applications: ['Etiquetagem', 'Rastreamento', 'GS1 / ANVISA'],
+      "Impressoras térmicas diretas e transferência térmica. Desktop, industriais e portáteis para alta qualidade.",
+    tags: ["Térmica direta", "Transferência térmica", "Industrial"],
+    brands: ["Zebra", "Honeywell", "TSC"],
+    images: [imp1, imp2, imp3, imp4],
+    waText: "Olá%2C%20tenho%20interesse%20em%20Impressoras%20de%20Etiquetas",
   },
   {
-    icon: Wifi,
-    title: 'Access Points',
+    title: "Access Points",
     description:
-      'Infraestrutura Wi-Fi industrial para ambientes exigentes: armazéns, galpões e fábricas. Alta densidade de dispositivos e cobertura ampla.',
-    tags: ['Wi-Fi 6 / 5 GHz', 'PoE', 'Industrial', 'Alta densidade'],
-    brands: ['Compex', 'Unitech'],
-    applications: ['Armazéns', 'Fábricas', 'Galpões logísticos'],
+      "Infraestrutura Wi-Fi para armazéns e fábricas. Alta densidade de conexões e cobertura ampla.",
+    tags: ["Wi-Fi 6 / 5 GHz", "PoE", "Alta densidade"],
+    brands: ["Ubiquiti", "Unitech"],
+    images: [ap1, ap2, ap3, ap4],
+    waText: "Olá%2C%20tenho%20interesse%20em%20Access%20Points",
   },
-]
+];
+
+function ProductCard({ product, index }) {
+  const [activeImg, setActiveImg] = useState(0);
+
+  return (
+    <div
+      className="reveal-scale card-lift group bg-white border border-gray-200 rounded-2xl overflow-hidden flex flex-col"
+      style={{ transitionDelay: `${index * 100}ms` }}
+    >
+      {/* Image area */}
+      <div className="relative bg-white h-56 overflow-hidden">
+        <img
+          src={product.images[activeImg]}
+          alt={product.title}
+          className="w-full h-full object-contain p-6 transition-all duration-500"
+        />
+        {/* Orange top bar on hover */}
+        <div className="absolute top-0 left-0 right-0 h-1 bg-[#FFC124] scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 rounded-none" />
+
+        {/* Thumbnails */}
+        <div className="absolute bottom-2.5 left-3 flex gap-1.5">
+          {product.images.map((img, i) => (
+            <button
+              key={i}
+              onClick={() => setActiveImg(i)}
+              className={`w-8 h-8 rounded-lg border overflow-hidden transition-all duration-200 ${
+                activeImg === i
+                  ? "border-[#FFC124] ring-1 ring-[#FFC124]/30 opacity-100"
+                  : "border-gray-200 opacity-60 hover:opacity-100 hover:border-orange-300"
+              }`}
+            >
+              <img
+                src={img}
+                alt=""
+                className="w-full h-full object-contain bg-white p-0.5"
+              />
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="flex flex-col flex-1 p-5">
+        {/* Brands */}
+        <div className="flex flex-wrap gap-1.5 mb-3">
+          {product.brands.map((b, j) => (
+            <span
+              key={j}
+              className="text-[10px] font-body font-semibold uppercase tracking-wider text-gray-400 bg-gray-50 border border-gray-200 px-2 py-0.5 rounded-full"
+            >
+              {b}
+            </span>
+          ))}
+        </div>
+
+        <h3 className="font-headline font-black text-lg text-gray-900 mb-2 leading-snug">
+          {product.title}
+        </h3>
+
+        <p className="font-body text-gray-500 text-sm leading-relaxed mb-4 flex-1">
+          {product.description}
+        </p>
+
+        {/* Tags */}
+        <div className="flex flex-wrap gap-1.5 mb-4">
+          {product.tags.map((tag, j) => (
+            <span
+              key={j}
+              className="text-xs font-body text-[#E6A800] bg-orange-50 border border-orange-100 px-2.5 py-1 rounded-full"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        <Button asChild variant="default" size="sm" className="w-full gap-2">
+          <a
+            href={`https://wa.me/551133793044?text=${product.waText}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <MessageCircle className="w-3.5 h-3.5" />
+            Solicitar Cotação
+            <ArrowRight className="w-3.5 h-3.5 ml-auto" />
+          </a>
+        </Button>
+      </div>
+    </div>
+  );
+}
 
 export default function Products() {
-  const sectionRef = useRef(null)
+  const sectionRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible')
-            observer.unobserve(entry.target)
+      (entries) =>
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("visible");
+            observer.unobserve(e.target);
           }
-        })
-      },
-      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
-    )
-
+        }),
+      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" },
+    );
     if (sectionRef.current) {
-      const els = sectionRef.current.querySelectorAll('.reveal, .reveal-scale')
-      els.forEach((el) => observer.observe(el))
+      sectionRef.current
+        .querySelectorAll(".reveal, .reveal-scale")
+        .forEach((el) => observer.observe(el));
     }
-
-    return () => observer.disconnect()
-  }, [])
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section id="produtos" ref={sectionRef} className="bg-[#080808] py-20 lg:py-28 relative overflow-hidden">
-      {/* Background decoration */}
-      <div
-        className="absolute right-0 top-1/2 -translate-y-1/2 w-[400px] h-[400px] pointer-events-none"
-        style={{
-          background: 'radial-gradient(circle, rgba(249,115,22,0.05) 0%, transparent 70%)',
-        }}
-      />
-
+    <section id="produtos" ref={sectionRef} className="bg-white py-20 lg:py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         {/* Header */}
-        <div className="mb-14 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-          <div>
-            <div className="reveal flex items-center gap-3 mb-4">
-              <span className="h-px w-10 bg-[#F97316]" />
-              <span className="text-[#F97316] text-xs font-body font-semibold uppercase tracking-widest">
-                Linha de Produtos
-              </span>
-            </div>
-            <h2
-              className="reveal font-headline font-black text-[#FAFAFA] leading-tight delay-100"
-              style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)' }}
-            >
-              EQUIPAMENTOS <br />
-              <span className="text-gradient">DE ALTA PERFORMANCE</span>
-            </h2>
+        <div className="mb-14 text-center">
+          <div className="reveal inline-flex items-center gap-2 bg-orange-50 border border-orange-200 text-[#E6A800] text-xs font-body font-semibold px-4 py-1.5 rounded-full uppercase tracking-widest mb-4">
+            Linha de Produtos
           </div>
-          <p className="reveal font-body text-[#A3A3A3] text-sm lg:text-base max-w-xs lg:text-right delay-200">
-            Portfólio selecionado das principais marcas globais do setor.
+          <h2
+            className="reveal font-headline font-black text-gray-900 leading-tight delay-100"
+            style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)" }}
+          >
+            EQUIPAMENTOS{" "}
+            <span className="text-gradient">DE ALTA PERFORMANCE</span>
+          </h2>
+          <p className="reveal font-body text-gray-500 text-sm lg:text-base max-w-md mx-auto mt-3 delay-200">
+            Portfólio das principais marcas globais. Clique nas miniaturas para
+            ver os modelos.
           </p>
         </div>
 
-        {/* Products grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {products.map((product, i) => {
-            const Icon = product.icon
-            return (
-              <div
-                key={i}
-                className="reveal-scale card-glow group relative bg-[#111111] border border-[#262626] rounded-sm p-7 flex flex-col overflow-hidden"
-                style={{ transitionDelay: `${i * 100}ms` }}
-              >
-                {/* Orange left accent */}
-                <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-[#F97316] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                {/* Top row */}
-                <div className="flex items-start justify-between mb-5">
-                  <div className="w-11 h-11 bg-[#1a1a1a] border border-[#262626] group-hover:border-[#F97316]/40 rounded-sm flex items-center justify-center transition-colors">
-                    <Icon className="w-5 h-5 text-[#F97316]" strokeWidth={1.8} />
-                  </div>
-                  <div className="flex flex-wrap gap-1 justify-end max-w-[200px]">
-                    {product.brands.map((b, j) => (
-                      <span
-                        key={j}
-                        className="text-[10px] font-body font-semibold uppercase tracking-wider text-[#A3A3A3] bg-[#1a1a1a] border border-[#262626] px-2 py-0.5 rounded-sm"
-                      >
-                        {b}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Title */}
-                <h3 className="font-headline font-black text-xl lg:text-2xl text-[#FAFAFA] mb-3 leading-tight tracking-wide">
-                  {product.title.toUpperCase()}
-                </h3>
-
-                {/* Description */}
-                <p className="font-body text-[#A3A3A3] text-sm leading-relaxed mb-5 flex-1">
-                  {product.description}
-                </p>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-5">
-                  {product.tags.map((tag, j) => (
-                    <span
-                      key={j}
-                      className="text-xs font-body text-[#F97316] bg-[#F97316]/10 border border-[#F97316]/20 px-2.5 py-1 rounded-sm"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Applications */}
-                <div className="flex items-center gap-2 text-xs font-body text-[#737373] mb-6">
-                  <span className="uppercase tracking-wider">Aplicações:</span>
-                  {product.applications.map((app, j) => (
-                    <span key={j} className="text-[#A3A3A3]">
-                      {app}{j < product.applications.length - 1 ? ' ·' : ''}
-                    </span>
-                  ))}
-                </div>
-
-                {/* CTA */}
-                <Button
-                  asChild
-                  variant="secondary"
-                  size="sm"
-                  className="w-full gap-2 group-hover:border-[#F97316]/40 group-hover:text-[#F97316]"
-                >
-                  <a href={WA_LINK} target="_blank" rel="noopener noreferrer">
-                    Solicitar Cotação
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </a>
-                </Button>
-              </div>
-            )
-          })}
+          {products.map((product, i) => (
+            <ProductCard key={i} product={product} index={i} />
+          ))}
         </div>
 
-        {/* Bottom CTA */}
         <div className="reveal mt-10 flex justify-center">
           <Button asChild size="lg" className="gap-2">
             <a href={WA_LINK} target="_blank" rel="noopener noreferrer">
@@ -191,5 +218,5 @@ export default function Products() {
         </div>
       </div>
     </section>
-  )
+  );
 }

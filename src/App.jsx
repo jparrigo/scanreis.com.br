@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Services from './components/Services'
@@ -7,9 +8,12 @@ import Brands from './components/Brands'
 import WhyUs from './components/WhyUs'
 import CtaBanner from './components/CtaBanner'
 import Footer from './components/Footer'
+import AreaRestrita from './pages/AreaRestrita'
+import GestaoGerencial from './pages/GestaoGerencial'
+import GestaoOperacional from './pages/GestaoOperacional'
+import QuemSomos from './pages/QuemSomos'
 
-export default function App() {
-  // Global scroll reveal for any leftover .reveal elements
+function Home() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -20,15 +24,10 @@ export default function App() {
           }
         })
       },
-      {
-        threshold: 0.1,
-        rootMargin: '0px 0px -40px 0px',
-      }
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
     )
-
-    const elements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale')
-    elements.forEach((el) => observer.observe(el))
-
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale')
+      .forEach((el) => observer.observe(el))
     return () => observer.disconnect()
   }, [])
 
@@ -45,5 +44,17 @@ export default function App() {
       </main>
       <Footer />
     </div>
+  )
+}
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/quem-somos" element={<QuemSomos />} />
+      <Route path="/area-restrita" element={<AreaRestrita />} />
+      <Route path="/area-restrita/gestao-gerencial" element={<GestaoGerencial />} />
+      <Route path="/area-restrita/gestao-operacional" element={<GestaoOperacional />} />
+    </Routes>
   )
 }
