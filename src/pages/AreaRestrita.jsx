@@ -130,7 +130,7 @@ export default function AreaRestrita() {
                   </div>
 
                   <div className="flex items-start justify-between gap-2">
-                    <h2 className="font-headline font-black text-gray-900 text-lg leading-snug">
+                    <h2 className="font-roboto font-black text-gray-900 text-lg leading-snug">
                       {card.label}
                     </h2>
                     {card.external && (

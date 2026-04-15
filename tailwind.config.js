@@ -11,6 +11,7 @@ export default {
         headline: ['"Barlow Condensed"', 'sans-serif'],
         body: ['"Barlow"', 'sans-serif'],
         sans: ['"Barlow"', 'sans-serif'],
+        roboto: ['"Roboto"'],
       },
       colors: {
         orange: {

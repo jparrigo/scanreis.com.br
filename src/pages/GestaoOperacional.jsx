@@ -176,7 +176,7 @@ export default function GestaoOperacional() {
                       strokeWidth={2}
                     />
                   </div>
-                  <h2 className="font-headline font-black text-gray-800 text-base uppercase tracking-widest">
+                  <h2 className="font-roboto font-black text-gray-800 text-base uppercase tracking-widest">
                     {cat.label}
                   </h2>
                   <div className="flex-1 h-px bg-gray-200" />
@@ -203,7 +203,7 @@ export default function GestaoOperacional() {
                             strokeWidth={2}
                           />
                         </div>
-                        <span className="font-body text-sm font-medium text-gray-700 group-hover:text-gray-900 flex-1 transition-colors">
+                        <span className="font-robot text-md font-medium text-gray-700 group-hover:text-gray-900 flex-1 transition-colors">
                           {item.label}
                         </span>
                         {isExternal ? (

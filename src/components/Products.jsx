@@ -81,7 +81,7 @@ function ProductCard({ product, index }) {
       <div className="relative bg-white h-56 overflow-hidden">
         <img
           src={product.images[activeImg]}
-          alt={product.title}
+          alt={`${product.title} — ${product.brands[activeImg] || product.brands[0]} | Scanreis`}
           className="w-full h-full object-contain p-6 transition-all duration-500"
         />
         {/* Orange top bar on hover */}
@@ -193,8 +193,8 @@ export default function Products() {
             className="reveal font-headline font-black text-gray-900 leading-tight delay-100"
             style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)" }}
           >
-            EQUIPAMENTOS{" "}
-            <span className="text-gradient">DE ALTA PERFORMANCE</span>
+            LEITORES, COLETORES,{" "}
+            <span className="text-gradient">IMPRESSORAS E ACCESS POINTS</span>
           </h2>
           <p className="reveal font-body text-gray-500 text-sm lg:text-base max-w-md mx-auto mt-3 delay-200">
             Portfólio das principais marcas globais. Clique nas miniaturas para

@@ -8,7 +8,7 @@ const WA_LINK =
 const services = [
   {
     icon: HandCoins,
-    title: "Locação",
+    title: "Locação de Equipamentos",
     subtitle: "Equipamentos sob demanda",
     description:
       "Aluguel flexível com manutenção inclusa e suporte dedicado. Ideal para projetos sazonais ou empresas que preferem capex zero.",
@@ -22,7 +22,7 @@ const services = [
   },
   {
     icon: Package,
-    title: "Venda",
+    title: "Venda de Equipamentos",
     subtitle: "Equipamentos novos",
     description:
       "Fornecimento de equipamentos originais das melhores marcas. Garantia de fábrica, suporte pós-venda e entrega para todo o Brasil.",
@@ -37,7 +37,7 @@ const services = [
   },
   {
     icon: Wrench,
-    title: "Reparo",
+    title: "Reparo Técnico Autorizado",
     subtitle: "Manutenção autorizada",
     description:
       "Centro técnico especializado para conserto de leitores, coletores e impressoras. Diagnóstico rápido com peças originais.",
@@ -116,7 +116,7 @@ export default function Services() {
             className="reveal font-headline font-black text-gray-900 leading-tight delay-100"
             style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)" }}
           >
-            TUDO QUE SUA <span className="text-gradient">OPERAÇÃO PRECISA</span>
+            SERVIÇOS DE <span className="text-gradient">LOCAÇÃO, VENDA E REPARO</span>
           </h2>
           <p className="reveal font-body text-gray-500 text-base lg:text-lg max-w-xl mx-auto mt-4 delay-200">
             Três modalidades de serviço para atender diferentes realidades

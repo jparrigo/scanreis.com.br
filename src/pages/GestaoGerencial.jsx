@@ -182,7 +182,7 @@ export default function GestaoGerencial() {
                       strokeWidth={2}
                     />
                   </div>
-                  <h2 className="font-headline font-black text-gray-800 text-base uppercase tracking-widest">
+                  <h2 className="font-roboto font-black text-gray-800 text-base uppercase tracking-widest">
                     {cat.label}
                   </h2>
                   <div className="flex-1 h-px bg-gray-200" />
@@ -207,7 +207,7 @@ export default function GestaoGerencial() {
                             strokeWidth={2}
                           />
                         </div>
-                        <span className="font-body text-sm font-medium text-gray-700 group-hover:text-gray-900 flex-1 transition-colors">
+                        <span className="font-roboto text-md font-medium text-gray-700 group-hover:text-gray-900 flex-1 transition-colors">
                           {item.label}
                         </span>
                         {isExternal ? (
@@ -229,7 +229,7 @@ export default function GestaoGerencial() {
               <div className="w-9 h-9 rounded-xl border bg-gray-50 border-gray-200 flex items-center justify-center flex-shrink-0">
                 <Receipt className="w-4 h-4 text-gray-500" strokeWidth={2} />
               </div>
-              <h2 className="font-headline font-black text-gray-800 text-base uppercase tracking-widest">
+              <h2 className="font-roboto font-black text-gray-800 text-base uppercase tracking-widest">
                 Extrato
               </h2>
               <div className="flex-1 h-px bg-gray-200" />
@@ -239,7 +239,7 @@ export default function GestaoGerencial() {
               href={EXTRATO_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-[#FFC124] hover:bg-[#E6A800] text-white font-headline font-bold uppercase tracking-wider text-sm px-6 py-3.5 rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-[#FFC124]/25"
+              className="inline-flex items-center gap-3 bg-[#FFC124] hover:bg-[#E6A800] text-white font-roboto font-bold uppercase tracking-wider text-sm px-6 py-3.5 rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-[#FFC124]/25"
             >
               <Receipt className="w-4 h-4" />
               Acessar Extrato

@@ -106,6 +106,7 @@ export default function Hero() {
               className="reveal font-headline font-black leading-[1.0] tracking-tight mb-4"
               style={{ fontSize: "clamp(2.6rem, 6vw, 5.5rem)" }}
             >
+              <span className="sr-only">Equipamentos de Automação para Logística e Indústria — </span>
               <span className="block text-gray-900">REDUZA CUSTOS,</span>
               <span className="block text-gradient">AUMENTE</span>
               <span className="block text-gray-900">EFICIÊNCIA</span>

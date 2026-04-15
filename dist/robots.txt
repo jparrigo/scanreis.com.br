@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /area-restrita/
+
+Sitemap: https://scanreis.com.br/sitemap.xml

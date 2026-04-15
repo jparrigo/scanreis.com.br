@@ -11,6 +11,7 @@ import {
   Target,
   ShieldCheck,
 } from "lucide-react";
+import SEOHead from "@/components/SEOHead";
 import logoImg from "@/imgs/logo-google-ads.png";
 // Substitua pelo caminho real da imagem quando disponível:
 import fachadaImg from "@/imgs/fachada.png";
@@ -79,6 +80,10 @@ export default function QuemSomos() {
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
+      <SEOHead
+        title="Quem Somos | Scanreis — 15 Anos em Automação Industrial"
+        description="Revenda autorizada Zebra, Honeywell, Urovo e Datalogic. Sede em Valinhos-SP. Centro técnico próprio. Atendimento exclusivo para CNPJ desde 2009."
+      />
       {/* Header */}
       <header className="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-10">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
@@ -103,7 +108,7 @@ export default function QuemSomos() {
             className="font-headline font-black text-gray-900 leading-tight mb-4"
             style={{ fontSize: "clamp(2rem, 5vw, 3rem)" }}
           >
-            QUEM SOMOS
+            SCANREIS — ESPECIALISTAS EM AUTOMAÇÃO INDUSTRIAL
           </h1>
           <p className="font-body text-gray-500 text-base leading-relaxed max-w-2xl">
             A <strong className="text-gray-800">ScanReis</strong> é uma empresa
@@ -131,7 +136,7 @@ export default function QuemSomos() {
               <Building2 className="w-4 h-4 text-[#E6A800]" strokeWidth={2} />
             </div>
             <h2 className="font-headline font-black text-gray-800 text-base uppercase tracking-widest">
-              Nossa Sede
+              Centro Técnico em Valinhos, SP
             </h2>
             <div className="flex-1 h-px bg-gray-200" />
           </div>
@@ -170,7 +175,7 @@ export default function QuemSomos() {
               <Target className="w-4 h-4 text-[#E6A800]" strokeWidth={2} />
             </div>
             <h2 className="font-headline font-black text-gray-800 text-base uppercase tracking-widest">
-              Valores
+              Missão, Compromisso e Estrutura
             </h2>
             <div className="flex-1 h-px bg-gray-200" />
           </div>
@@ -207,7 +212,7 @@ export default function QuemSomos() {
               <Hash className="w-4 h-4 text-[#E6A800]" strokeWidth={2} />
             </div>
             <h2 className="font-headline font-black text-gray-800 text-base uppercase tracking-widest">
-              Dados Cadastrais
+              Informações Corporativas
             </h2>
             <div className="flex-1 h-px bg-gray-200" />
           </div>

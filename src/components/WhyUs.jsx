@@ -3,7 +3,7 @@ import { Clock, HeadphonesIcon, Award, TrendingUp, ShieldCheck, Truck, CheckCirc
 
 const stats = [
   { value: 15, suffix: '+', label: 'Anos de mercado', description: 'Experiência consolidada no setor' },
-  { value: 500, suffix: '+', label: 'Empresas atendidas', description: 'Em todo o território nacional' },
+  { value: 800, suffix: '+', label: 'Empresas atendidas', description: 'Em todo o território nacional' },
   { value: 98, suffix: '%', label: 'Taxa de satisfação', description: 'Avaliações de clientes' },
   { value: 24, suffix: 'h', label: 'Diagnóstico técnico', description: 'Resposta rápida garantida' },
 ]
