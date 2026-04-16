@@ -110,7 +110,7 @@ export default function QuemSomos() {
           >
             SCANREIS — ESPECIALISTAS EM AUTOMAÇÃO INDUSTRIAL
           </h1>
-          <p className="font-body text-gray-500 text-base leading-relaxed max-w-2xl">
+          <p className="font-roboto text-gray-500 text-base leading-relaxed max-w-2xl">
             A <strong className="text-gray-800">ScanReis</strong> é uma empresa
             especializada em equipamentos de automação para o mercado B2B, com
             atuação em todo o território nacional. Fundada com o propósito de
@@ -119,7 +119,7 @@ export default function QuemSomos() {
             coletores de dados, leitores de código de barras, impressoras de
             etiquetas e access points.
           </p>
-          <p className="font-body text-gray-500 text-base leading-relaxed max-w-2xl mt-4">
+          <p className="font-roboto text-gray-500 text-base leading-relaxed max-w-2xl mt-4">
             Ao longo dos anos, construímos parcerias sólidas com os maiores
             fabricantes globais do setor, tornando-nos um elo confiável entre a
             tecnologia de ponta e as necessidades reais das empresas
@@ -135,7 +135,7 @@ export default function QuemSomos() {
             <div className="w-9 h-9 rounded-xl border bg-orange-50 border-orange-100 flex items-center justify-center flex-shrink-0">
               <Building2 className="w-4 h-4 text-[#E6A800]" strokeWidth={2} />
             </div>
-            <h2 className="font-headline font-black text-gray-800 text-base uppercase tracking-widest">
+            <h2 className="font-roboto font-black text-gray-800 text-base uppercase tracking-widest">
               Centro Técnico em Valinhos, SP
             </h2>
             <div className="flex-1 h-px bg-gray-200" />
@@ -174,7 +174,7 @@ export default function QuemSomos() {
             <div className="w-9 h-9 rounded-xl border bg-orange-50 border-orange-100 flex items-center justify-center flex-shrink-0">
               <Target className="w-4 h-4 text-[#E6A800]" strokeWidth={2} />
             </div>
-            <h2 className="font-headline font-black text-gray-800 text-base uppercase tracking-widest">
+            <h2 className="font-roboto font-black text-gray-800 text-base uppercase tracking-widest">
               Missão, Compromisso e Estrutura
             </h2>
             <div className="flex-1 h-px bg-gray-200" />
@@ -193,7 +193,7 @@ export default function QuemSomos() {
                   >
                     <Icon className={`w-5 h-5 ${p.color}`} strokeWidth={2} />
                   </div>
-                  <h3 className="font-headline font-black text-gray-900 text-base mb-2">
+                  <h3 className="font-roboto font-black text-gray-900 text-base mb-2">
                     {p.title}
                   </h3>
                   <p className="font-body text-sm text-gray-500 leading-relaxed">
@@ -211,7 +211,7 @@ export default function QuemSomos() {
             <div className="w-9 h-9 rounded-xl border bg-orange-50 border-orange-100 flex items-center justify-center flex-shrink-0">
               <Hash className="w-4 h-4 text-[#E6A800]" strokeWidth={2} />
             </div>
-            <h2 className="font-headline font-black text-gray-800 text-base uppercase tracking-widest">
+            <h2 className="font-roboto font-black text-gray-800 text-base uppercase tracking-widest">
               Informações Corporativas
             </h2>
             <div className="flex-1 h-px bg-gray-200" />
@@ -226,10 +226,10 @@ export default function QuemSomos() {
                     <Icon className="w-4 h-4 text-[#E6A800]" strokeWidth={2} />
                   </div>
                   <div className="flex-1">
-                    <div className="text-xs font-body font-semibold text-gray-400 uppercase tracking-wider mb-0.5">
+                    <div className="text-xs font-roboto font-semibold text-gray-400 uppercase tracking-wider mb-0.5">
                       {item.label}
                     </div>
-                    <div className="font-body text-sm text-gray-800 whitespace-pre-line">
+                    <div className="font-roboto text-sm text-gray-800 whitespace-pre-line">
                       {item.value}
                     </div>
                   </div>
