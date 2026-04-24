@@ -13,6 +13,7 @@ import GestaoGerencial from './pages/GestaoGerencial'
 import GestaoOperacional from './pages/GestaoOperacional'
 import QuemSomos from './pages/QuemSomos'
 import SEOHead from './components/SEOHead'
+import RequireAuth from './components/RequireAuth'
 
 const localBusinessSchema = {
   '@context': 'https://schema.org',
@@ -95,27 +96,27 @@ export default function App() {
       <Route
         path="/area-restrita/gestao-gerencial"
         element={
-          <>
+          <RequireAuth>
             <SEOHead
               title="Gestão Gerencial | Scanreis"
               description="Acesso interno Scanreis."
               noIndex={true}
             />
             <GestaoGerencial />
-          </>
+          </RequireAuth>
         }
       />
       <Route
         path="/area-restrita/gestao-operacional"
         element={
-          <>
+          <RequireAuth>
             <SEOHead
               title="Gestão Operacional | Scanreis"
               description="Acesso interno Scanreis."
               noIndex={true}
             />
             <GestaoOperacional />
-          </>
+          </RequireAuth>
         }
       />
     </Routes>
