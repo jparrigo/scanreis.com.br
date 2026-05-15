@@ -1,28 +1,32 @@
-import { useState, useEffect } from "react";
-import { Menu, X, MessageCircle } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Menu, X, MessageCircle, ChevronDown, Smartphone, Wifi, ScanLine, Printer, Tablet, Package } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import logoImg from "@/imgs/logo-google-ads.png";
 
 const WA_LINK =
   "https://wa.me/551133793044?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento";
 
-// Tipos de link suportados:
-// - href="#ancora"        → scroll suave para a seção
-// - href="/rota"          → navegação interna (mesma aba)
-// - href="https://..."    → link externo (nova aba por padrão)
-// - newTab: true          → força abertura em nova aba
+const CATEGORIAS = [
+  { slug: "coletores-de-dados", label: "Coletor de Dados",  icon: Smartphone },
+  { slug: "access-points",      label: "Access Point",      icon: Wifi       },
+  { slug: "leitores",           label: "Leitores",           icon: ScanLine   },
+  { slug: "impressoras",        label: "Impressoras",        icon: Printer    },
+  { slug: "tablets",            label: "Tablets",            icon: Tablet     },
+  { slug: "acessorios",         label: "Acessórios",         icon: Package    },
+];
+
 const navLinks = [
   {
     label: "Portifólio",
     href: "http://scanreis2.hospedagemdesites.ws/datasheet/scanreis/fscanreis.pdf",
     newTab: true,
   },
-  { label: "Serviços", href: "#servicos" },
-  { label: "Produtos", href: "#produtos" },
-  { label: "Marcas", href: "#marcas" },
+  { label: "Serviços",    href: "#servicos"    },
+  { label: "Marcas",      href: "#marcas"      },
   { label: "Por que nós", href: "#por-que-nos" },
-  { label: "Contato", href: "#contato" },
-  { label: "Quem Somos", href: "/quem-somos" },
+  { label: "Contato",     href: "#contato"     },
+  { label: "Quem Somos",  href: "/quem-somos"  },
   { label: "Área Restrita", href: "/area-restrita" },
 ];
 
@@ -34,7 +38,7 @@ const mobileLinkClass =
   "text-left w-full px-4 py-3 text-sm font-body font-medium text-gray-600 hover:text-[#FFC124] hover:bg-orange-50 rounded-lg transition-colors";
 
 function NavItem({ link, mobile = false, onAnchorClick }) {
-  const isAnchor = link.href.startsWith("#");
+  const isAnchor   = link.href.startsWith("#");
   const isExternal = link.href.startsWith("http") || link.newTab;
 
   if (isAnchor) {
@@ -63,9 +67,100 @@ function NavItem({ link, mobile = false, onAnchorClick }) {
   );
 }
 
+// ── Desktop dropdown ──────────────────────────────────────────────────────────
+function ProdutosDropdown({ onScrollProdutos }) {
+  const [open, setOpen] = useState(false);
+  const timeoutRef = useRef(null);
+
+  const show = () => {
+    clearTimeout(timeoutRef.current);
+    setOpen(true);
+  };
+  const hide = () => {
+    timeoutRef.current = setTimeout(() => setOpen(false), 120);
+  };
+
+  return (
+    <div
+      className="relative"
+      onMouseEnter={show}
+      onMouseLeave={hide}
+    >
+      {/* Trigger */}
+      <button
+        onClick={onScrollProdutos}
+        className={`${linkItemClass} flex items-center gap-1`}
+      >
+        Produtos
+        <ChevronDown
+          className={`w-3.5 h-3.5 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+        />
+        <span className={linkUnderline} />
+      </button>
+
+      {/* Dropdown panel */}
+      {open && (
+        <div
+          onMouseEnter={show}
+          onMouseLeave={hide}
+          className="absolute top-full left-1/2 -translate-x-1/2 mt-1 bg-white border border-gray-200 rounded-2xl shadow-xl p-2 w-52 z-50 animate-[fade-in_0.15s_ease-out]"
+        >
+          {CATEGORIAS.map(({ slug, label, icon: Icon }) => (
+            <Link
+              key={slug}
+              to={`/produtos/${slug}`}
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-body font-medium text-gray-700 hover:text-[#E6A800] hover:bg-orange-50 transition-colors duration-150"
+            >
+              <Icon className="w-4 h-4 text-gray-400 flex-shrink-0" strokeWidth={1.75} />
+              {label}
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ── Mobile produtos accordion ─────────────────────────────────────────────────
+function MobileProdutos({ onClose }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div>
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className={`${mobileLinkClass} flex items-center justify-between`}
+      >
+        <span>Produtos</span>
+        <ChevronDown
+          className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+        />
+      </button>
+
+      {open && (
+        <div className="ml-4 mt-1 space-y-0.5 border-l-2 border-orange-100 pl-3">
+          {CATEGORIAS.map(({ slug, label, icon: Icon }) => (
+            <Link
+              key={slug}
+              to={`/produtos/${slug}`}
+              onClick={onClose}
+              className="flex items-center gap-2.5 w-full px-3 py-2.5 text-sm font-body font-medium text-gray-600 hover:text-[#FFC124] hover:bg-orange-50 rounded-lg transition-colors"
+            >
+              <Icon className="w-4 h-4 text-gray-400 flex-shrink-0" strokeWidth={1.75} />
+              {label}
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ── Main Navbar ───────────────────────────────────────────────────────────────
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled,    setScrolled]    = useState(false);
+  const [mobileOpen,  setMobileOpen]  = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -83,6 +178,8 @@ export default function Navbar() {
     }
   };
 
+  const scrollToProdutos = () => handleAnchorClick("#produtos");
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -93,6 +190,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
+
           {/* Logo */}
           <a
             href="#"
@@ -107,12 +205,17 @@ export default function Navbar() {
 
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <NavItem
-                key={link.href}
-                link={link}
-                onAnchorClick={handleAnchorClick}
-              />
+            {/* Links before Produtos */}
+            {navLinks.slice(0, 2).map((link) => (
+              <NavItem key={link.href} link={link} onAnchorClick={handleAnchorClick} />
+            ))}
+
+            {/* Produtos dropdown */}
+            <ProdutosDropdown onScrollProdutos={scrollToProdutos} />
+
+            {/* Links after Produtos */}
+            {navLinks.slice(2).map((link) => (
+              <NavItem key={link.href} link={link} onAnchorClick={handleAnchorClick} />
             ))}
           </nav>
 
@@ -132,11 +235,7 @@ export default function Navbar() {
             onClick={() => setMobileOpen((v) => !v)}
             aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
           >
-            {mobileOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
+            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
@@ -146,14 +245,19 @@ export default function Navbar() {
         className={`mobile-menu lg:hidden bg-white border-t border-gray-100 ${mobileOpen ? "open" : "closed"}`}
       >
         <div className="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-1">
-          {navLinks.map((link) => (
-            <NavItem
-              key={link.href}
-              link={link}
-              mobile
-              onAnchorClick={handleAnchorClick}
-            />
+          {/* Links before Produtos */}
+          {navLinks.slice(0, 2).map((link) => (
+            <NavItem key={link.href} link={link} mobile onAnchorClick={handleAnchorClick} />
           ))}
+
+          {/* Produtos accordion */}
+          <MobileProdutos onClose={() => setMobileOpen(false)} />
+
+          {/* Links after Produtos */}
+          {navLinks.slice(2).map((link) => (
+            <NavItem key={link.href} link={link} mobile onAnchorClick={handleAnchorClick} />
+          ))}
+
           <div className="pt-2 pb-1">
             <Button asChild size="default" className="w-full gap-2">
               <a href={WA_LINK} target="_blank" rel="noopener noreferrer">

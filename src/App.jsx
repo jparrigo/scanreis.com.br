@@ -14,6 +14,8 @@ import GestaoOperacional from './pages/GestaoOperacional'
 import QuemSomos from './pages/QuemSomos'
 import SEOHead from './components/SEOHead'
 import RequireAuth from './components/RequireAuth'
+import Produto from './pages/Produto'
+import Categoria from './pages/Categoria'
 
 const localBusinessSchema = {
   '@context': 'https://schema.org',
@@ -80,6 +82,8 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/quem-somos" element={<QuemSomos />} />
+      <Route path="/produto/:slug" element={<Produto />} />
+      <Route path="/produtos/:categoriaSlug" element={<Categoria />} />
       <Route
         path="/area-restrita"
         element={
