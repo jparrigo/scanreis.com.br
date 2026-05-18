@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, href } from "react-router-dom";
 import {
   DollarSign,
   Mail,
@@ -10,6 +10,7 @@ import {
   Lock,
   Eye,
   EyeOff,
+  FolderArchiveIcon,
 } from "lucide-react";
 import logoImg from "@/imgs/logo-google-ads.png";
 import { isAuthenticated, login } from "@/auth";
@@ -59,6 +60,16 @@ const cards = [
     bg: "bg-violet-50 border-violet-100",
     hoverBorder: "hover:border-violet-400",
   },
+  {
+    icon: FolderArchiveIcon,
+    label: "Pasta Drive ScanReis",
+    description: "Acesso a arquivos apk para download.",
+    href: "https://drive.google.com/drive/folders/1H-T2pNRfLUgPE6s0sNKR9kXmnU1qNx24?usp=drive_link",
+    external: true,
+    color: "text-orange-500",
+    bg: "bg-orange-50 border-orange-100",
+    hoverBorder: "hover:border-orange-400"
+  }
 ];
 
 function PasswordGate({ onSuccess, blocked }) {

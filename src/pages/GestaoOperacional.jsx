@@ -96,7 +96,7 @@ const categories = [
       {
         label: "Tabela Honeywell / Intermec",
         icon: FileText,
-        href: "https://docs.google.com/spreadsheets/d/1L30efoq1fVC3Ci7pOTd0ef8VAsZgcDlu/edit?usp=drive_link&ouid=101487253340101774377&rtpof=true&sd=true&export=download",
+        href: "https://docs.google.com/spreadsheets/d/1NGM3qMfXD_scUp5vWNMUOFmsGFE-bVjZ/edit?usp=drive_link&ouid=101487253340101774377&rtpof=true&sd=true&export=download",
       },
       {
         label: "Tabela KNC",
