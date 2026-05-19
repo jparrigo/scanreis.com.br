@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Services from './components/Services'
@@ -77,8 +77,19 @@ function Home() {
   )
 }
 
+function GTMPageTracker() {
+  const location = useLocation()
+  useEffect(() => {
+    window.dataLayer = window.dataLayer || []
+    window.dataLayer.push({ event: 'pageview', page: location.pathname + location.search })
+  }, [location])
+  return null
+}
+
 export default function App() {
   return (
+    <>
+    <GTMPageTracker />
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/quem-somos" element={<QuemSomos />} />
@@ -124,5 +135,6 @@ export default function App() {
         }
       />
     </Routes>
+    </>
   )
 }
