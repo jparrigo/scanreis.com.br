@@ -65,7 +65,7 @@ const cards = [
     label: "Pasta Drive ScanReis",
     description: "Acesso a arquivos apk para download.",
     //href: "https://drive.google.com/drive/folders/1H-T2pNRfLUgPE6s0sNKR9kXmnU1qNx24?usp=drive_link",
-    href: "https://github.com/jparrigo/scanreis-manager/releases/download/DEV/4-0-4-scanreisinv.apk",
+    href: "https://github.com/jparrigo/scanreis-inv-releases/releases/download/DEV/4-0-4-scanreisinv.apk",
     external: true,
     color: "text-orange-500",
     bg: "bg-orange-50 border-orange-100",
