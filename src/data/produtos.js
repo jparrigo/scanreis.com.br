@@ -320,6 +320,38 @@ export const produtos = {
     whatsappMensagem: 'Olá! Tenho interesse no Urovo RT40. Podem me enviar mais informações e preços?',
   },
 
+  ct48: {
+    slug: 'ct48',
+    nome: 'Urovo CT48',
+    marca: 'Urovo',
+    categoria: 'coletores-de-dados',
+    descricao:
+      'O Urovo CT48 é um coletor robusto com pistola integrada e IP67, desenvolvido para armazéns, centros de distribuição e operações de campo de alto volume.',
+    destaques: [
+      'Android 11 com Android Enterprise',
+      'Pistola ergonômica integrada',
+      'Leitor 2D de alta performance',
+      'IP67 – à prova de poeira e imersão',
+      'Resistente a quedas de 1,5 m',
+      'Wi-Fi 6 (802.11 ax)',
+    ],
+    fotos: [ct48_1, ct48_2],
+    informacoesTecnicas: {
+      'Sistema Operacional': 'Android 11',
+      'Processador': 'Qualcomm Octa-Core 2.2 GHz',
+      'Memória RAM': '4 GB',
+      'Armazenamento': '64 GB',
+      'Tela': '4,0" WVGA (800 × 480)',
+      'Leitor de Código': '2D Imager',
+      'Wi-Fi': '802.11 a/b/g/n/ac/ax (Wi-Fi 6)',
+      'Bluetooth': '5.1',
+      'Bateria': '4.000 mAh',
+      'Resistência a quedas': '1,5 metros',
+      'Classificação IP': 'IP67',
+    },
+    whatsappMensagem: 'Olá! Tenho interesse no Urovo CT48. Podem me enviar mais informações e preços?',
+  },
+
   eda61k: {
     slug: 'eda61k',
     nome: 'Honeywell EDA61K',
@@ -352,38 +384,6 @@ export const produtos = {
       'Classificação IP': 'IP52',
     },
     whatsappMensagem: 'Olá! Tenho interesse no Honeywell EDA61K. Podem me enviar mais informações e preços?',
-  },
-
-  ct48: {
-    slug: 'ct48',
-    nome: 'Honeywell CT48',
-    marca: 'Honeywell',
-    categoria: 'coletores-de-dados',
-    descricao:
-      'O Honeywell CT48 é um coletor robusto com pistola integrada e IP67, desenvolvido para armazéns, centros de distribuição e operações de campo de alto volume.',
-    destaques: [
-      'Android 11 com Android Enterprise',
-      'Pistola ergonômica integrada',
-      'Leitor 2D de alta performance',
-      'IP67 – à prova de poeira e imersão',
-      'Resistente a quedas de 1,5 m',
-      'Wi-Fi 6 (802.11 ax)',
-    ],
-    fotos: [ct48_1, ct48_2],
-    informacoesTecnicas: {
-      'Sistema Operacional': 'Android 11',
-      'Processador': 'Qualcomm Octa-Core 2.2 GHz',
-      'Memória RAM': '4 GB',
-      'Armazenamento': '64 GB',
-      'Tela': '4,0" WVGA (800 × 480)',
-      'Leitor de Código': '2D Imager',
-      'Wi-Fi': '802.11 a/b/g/n/ac/ax (Wi-Fi 6)',
-      'Bluetooth': '5.1',
-      'Bateria': '4.000 mAh',
-      'Resistência a quedas': '1,5 metros',
-      'Classificação IP': 'IP67',
-    },
-    whatsappMensagem: 'Olá! Tenho interesse no Honeywell CT48. Podem me enviar mais informações e preços?',
   },
 
   // ── TABLETS ──────────────────────────────────────────────────────────────
