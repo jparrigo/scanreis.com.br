@@ -9,10 +9,11 @@ import leitor3 from "@/imgs/leitores/Heron HD3430.png";
 import leitor4 from "@/imgs/leitores/RIDA.png";
 
 // Coletores
-import coletor1 from "@/imgs/coletores/mc22.jpg";
+import coletor1 from "@/imgs/coletores/mc33.jpg";
 import coletor2 from "@/imgs/coletores/ct48.jpg";
 import coletor3 from "@/imgs/coletores/dt50.png";
-import coletor4 from "@/imgs/coletores/rt40-hand.png";
+import coletor4 from "@/imgs/coletores/rt40.png";
+import coletor5 from "@/imgs/coletores/tc15.jpg"
 
 // Impressoras
 import imp1 from "@/imgs/impressoras/zd400-series-right-3x2-3600.jpg";
@@ -46,7 +47,7 @@ const products = [
       "Terminais móveis robustos com Android para coleta em campo. Scanner integrado e bateria de longa duração.",
     tags: ["Android", "RFID Opcional", "Wi-Fi / 4G"],
     brands: ["Urovo", "Unitech", "Zebra", "Honeywell", "Compex"],
-    images: [coletor1, coletor2, coletor3, coletor4],
+    images: [coletor1, coletor5, coletor2, coletor3, coletor4],
     waText: "Olá%2C%20tenho%20interesse%20em%20Coletores%20de%20Dados",
   },
   {
