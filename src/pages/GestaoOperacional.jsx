@@ -101,7 +101,7 @@ const categories = [
       {
         label: "Tabela KNC",
         icon: FileText,
-        href: "https://drive.google.com/file/d/15VL85KaKuVaLeKrVojoC4_oolU5A77sB/view?usp=drive_link&export=download",
+        href: "https://drive.google.com/file/d/1z8un0qAF8ncW0dgjvzPTyrOstSEQsnpp/view?usp=drive_link&export=download",
       },
       {
         label: "Tabela Unitech",
