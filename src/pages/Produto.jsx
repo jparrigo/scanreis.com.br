@@ -9,7 +9,7 @@ import {
   PackageSearch,
 } from 'lucide-react'
 import logoImg from '@/imgs/logo-google-ads.png'
-import { produtos } from '@/data/produtos'
+import { produtos, CATEGORIAS } from '@/data/produtos'
 import SEOHead from '@/components/SEOHead'
 
 const WA_NUMBER = '551133793044'
@@ -78,11 +78,11 @@ export default function Produto() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <img src={logoImg} alt="Scanreis" className="h-32 w-auto" />
           <button
-            onClick={() => navigate('/')}
+            onClick={() => navigate(`/produtos/${produto.categoria}`)}
             className="flex items-center gap-2 text-sm font-body font-medium text-gray-500 hover:text-[#FFC124] transition-colors duration-150"
           >
             <ArrowLeft className="w-4 h-4" />
-            Voltar ao site
+            Voltar para {CATEGORIAS[produto.categoria] ?? 'categoria'}
           </button>
         </div>
       </header>

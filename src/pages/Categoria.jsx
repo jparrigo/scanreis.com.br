@@ -12,7 +12,7 @@ export default function Categoria() {
 
   const categoriaLabel = CATEGORIAS[categoriaSlug]
   const produtosPorMarca = categoriaLabel ? getProdutosPorMarca(categoriaSlug) : null
-  const marcas = produtosPorMarca ? Object.keys(produtosPorMarca).sort() : []
+  const marcas = produtosPorMarca ? Object.keys(produtosPorMarca) : []
 
   if (!categoriaLabel) {
     return (
@@ -113,7 +113,7 @@ export default function Categoria() {
                     className="group bg-white border border-gray-200 hover:border-[#FFC124] rounded-2xl overflow-hidden transition-all duration-200 hover:shadow-md hover:-translate-y-0.5"
                   >
                     {/* Product image */}
-                    <div className="aspect-square bg-gray-50 flex items-center justify-center p-4 overflow-hidden">
+                    <div className="aspect-square bg-white flex items-center justify-center p-4 overflow-hidden">
                       {produto.fotos?.[0] ? (
                         <img
                           src={produto.fotos[0]}
