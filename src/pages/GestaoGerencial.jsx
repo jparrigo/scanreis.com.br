@@ -11,7 +11,7 @@ import {
   ChevronRight,
   ExternalLink,
 } from "lucide-react";
-import logoImg from "@/imgs/logo-google-ads.png";
+import logoImg from "@/imgs/Logo ScanReis sozinha.png";
 
 const categories = [
   {

@@ -12,7 +12,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
-import logoImg from "@/imgs/logo-google-ads.png";
+import logoImg from "@/imgs/Logo ScanReis sozinha.png";
 // Substitua pelo caminho real da imagem quando disponível:
 import fachadaImg from "@/imgs/fachada.png";
 

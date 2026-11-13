@@ -8,7 +8,7 @@ import {
   Check,
   PackageSearch,
 } from 'lucide-react'
-import logoImg from '@/imgs/logo-google-ads.png'
+import logoImg from '@/imgs/Logo ScanReis sozinha.png'
 import { produtos, CATEGORIAS } from '@/data/produtos'
 import SEOHead from '@/components/SEOHead'
 

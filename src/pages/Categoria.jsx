@@ -1,6 +1,6 @@
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { ArrowLeft, MessageCircle, PackageSearch } from 'lucide-react'
-import logoImg from '@/imgs/logo-google-ads.png'
+import logoImg from '@/imgs/Logo ScanReis sozinha.png'
 import { CATEGORIAS, getProdutosPorMarca } from '@/data/produtos'
 import SEOHead from '@/components/SEOHead'
 

@@ -1,5 +1,5 @@
 import { MessageCircle, Mail, MapPin, Clock, Phone } from "lucide-react";
-import logoImg from "@/imgs/logo-google-ads.png";
+import logoImg from "@/imgs/Logo ScanReis sozinha.png";
 
 const WA_LINK =
   "https://wa.me/551133793044?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento";

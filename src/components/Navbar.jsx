@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Menu, X, MessageCircle, ChevronDown, Smartphone, Wifi, ScanLine, Printer, Tablet, Package } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import logoImg from "@/imgs/logo-google-ads.png";
+import logoImg from "@/imgs/Logo ScanReis sozinha.png";
 
 const WA_LINK =
   "https://wa.me/551133793044?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento";

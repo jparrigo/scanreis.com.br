@@ -12,7 +12,7 @@ import {
   EyeOff,
   FolderArchiveIcon,
 } from "lucide-react";
-import logoImg from "@/imgs/logo-google-ads.png";
+import logoImg from "@/imgs/Logo ScanReis sozinha.png";
 import { isAuthenticated, login } from "@/auth";
 
 const PTAX_URL =
