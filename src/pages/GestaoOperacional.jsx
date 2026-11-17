@@ -111,7 +111,7 @@ const categories = [
       {
         label: "Tabela Zebra / Motorola",
         icon: FileText,
-        href: "https://docs.google.com/spreadsheets/d/1xmixf81tHigQouuAac1CQdH4VhO1bgci/edit?usp=drive_link&ouid=101487253340101774377&rtpof=true&sd=true&export=download",
+        href: "https://docs.google.com/spreadsheets/d/138d6WwsmnwYMMjIHqPb5KreXV88jHTLS/edit?usp=drive_link&ouid=101487253340101774377&rtpof=true&sd=true&export=download",
       },
     ],
   },
